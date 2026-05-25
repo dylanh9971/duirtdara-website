@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dúirt Dara - Irish Learning</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Tenor+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><img src="duirtdaralogo3.png" alt="Dúirt Dara" id="logo-img"></div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#" id="contactNavBtn">Contact Me</a></li>
+            </ul>
+            <div class="social-icons-header">
+                <a href="https://www.facebook.com/dara.nichoileaincollins" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://uk.linkedin.com/in/dara-collins-7a8557208" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/daracollins/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Hi, I'm Dara</h1>
+                <p>Fall in love with Irish all over again, Joining me on a journey to make Gaeilge modern, manageable, and fun</p>
+                <button class="reach-out-btn" id="reachOutBtn">Reach Out</button>
+            </div>
+        </section>
+
+        <!-- Reach Out Modal -->
+        <div class="modal-overlay" id="reachOutModal">
+            <div class="modal">
+                <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+                <h3 class="modal-title">Get in Touch</h3>
+                <div id="roSuccess" style="display:none; text-align:center; padding:1.5rem 0; color:var(--primary-color); font-size:1.1rem;">Message sent! I'll be in touch soon.</div>
+                <div id="roError" style="display:none; color:#c0392b; margin-bottom:0.75rem; font-size:0.9rem;"></div>
+                <form class="modal-form" id="reachOutForm">
+                    <div class="form-group">
+                        <label for="ro-name">Name</label>
+                        <input type="text" id="ro-name" name="name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ro-email">Email</label>
+                        <input type="email" id="ro-email" name="email" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ro-message">Message</label>
+                        <textarea id="ro-message" name="message" rows="4" placeholder="Say hello..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- About Me Section -->
+        <section id="about" class="about">
+            <h2><img src="failtenew1.png" alt="Failte" class="about-title-img"> <img src="hi.png" alt="" class="about-title-icon"></h2>
+            <div class="about-content">
+                <p>I'm Dara, a proud Gaeilgeoir from South Armagh. By day I am an Irish translator and by night I teach adults Irish. Not quite as cool as Batman, but a close second!</p>
+                <p>Having grown up on this side of the border, and my cousins on the other, I couldn't for the life of me comprehend why they were lucky enough to attend an Irish speaking school, and could have secret conversations amongst themselves at family events. Maybe not the best career plan, driven entirely by envy, but I'm in too deep now!</p>
+                <p>You can't step outside in South Armagh without putting your foot in a pile of history - from Cú Chulainn and Fionn MacCumhaill to smugglers and bandits. Makes Game of Thrones look like light reading.</p>
+                <p>I finally got the chance at Ulster University, Derry to properly scratch the itch - diving into eccentric characters and rich folklore. Then the rash spread to etymology, suddenly words themselves could tell the history for me. Or more often, open up another can of worms. I've found I have learned just as much about English as Irish on my journey - where all our wee quirky turns of phrase have come from.</p>
+                <p>Sleepless nights were spent, not in Sandinos, but hunched over JSTOR journals and sources, obsessing over even the smallest detail connecting us to something bigger.</p>
+                <p>My classes are usually pure rambles, never in a straight line from where we began. Yes we've taken detours adding 40min on to our plans. Yes we got distracted by a great viewpoint or stopped to ask directions off a lunatic local, but that's kinda the point.</p>
+                <p>For now, this site is just a way to journal my ramblings, whether a gentle stroll or a full-on Bear Grylls survival adventure. If you are learning Irish, or even just thinking about it, you might find something along the way.</p>
+                <p>Slán</p>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery">
+            <h2 class="gallery-title">Moments & Places <img src="leaves.png" alt="" class="gallery-title-icon"></h2>
+            <div class="marquee-container">
+                <div class="marquee-track">
+                    <div class="marquee-item"><img src="museum.png" alt="Museum" loading="lazy"></div>
+                    <div class="marquee-item"><img src="elections.png" alt="European elections" loading="lazy"></div>
+                    <div class="marquee-item"><img src="comitee.png" alt="Committee" loading="lazy"></div>
+                    <div class="marquee-item"><img src="mancan.png" alt="Portrait" loading="lazy"></div>
+                    <div class="marquee-item"><img src="hogwarts.png" alt="Landscape" loading="lazy"></div>
+                    <div class="marquee-item"><img src="daraprofile.png" alt="Dúirt Dara" loading="lazy"></div>
+                    <div class="marquee-item"><img src="writingworkshop.jpg" alt="Writing Workshop" loading="lazy"></div>
+                    <div class="marquee-item"><img src="museum.png" alt="Museum" loading="lazy"></div>
+                    <div class="marquee-item"><img src="elections.png" alt="European elections" loading="lazy"></div>
+                    <div class="marquee-item"><img src="comitee.png" alt="Committee" loading="lazy"></div>
+                    <div class="marquee-item"><img src="mancan.png" alt="Portrait" loading="lazy"></div>
+                    <div class="marquee-item"><img src="hogwarts.png" alt="Landscape" loading="lazy"></div>
+                    <div class="marquee-item"><img src="daraprofile.png" alt="Dúirt Dara" loading="lazy"></div>
+                    <div class="marquee-item"><img src="writingworkshop.jpg" alt="Writing Workshop" loading="lazy"></div>
+                </div>
+            </div>
+
+            <div class="map-wrapper">
+                <p class="map-subtitle">Click a pin to hear the story 📍</p>
+                <p class="map-subtitle" style="font-size:0.9rem; margin-top:-0.5rem;"><em>Some of the pinned locations are mentioned in my blogs</em></p>
+                <div id="irishMap"></div>
+            </div>
+
+            <!-- Journey Timeline -->
+            <div class="journey-wrapper">
+                <h3 class="journey-title">My Irish Journey <img src="destination.png" alt="" class="journey-title-icon"></h3>
+                <div class="journey-rail">
+                    <div class="journey-nodes">
+                        <button class="journey-node" data-journey="0">
+                            <div class="journey-dot"></div>
+                            <span class="journey-label">St. Paul's Bessbrook</span>
+                            <span class="journey-loc">📍 Camlough, Co. Armagh</span>
+                        </button>
+                        <button class="journey-node" data-journey="1">
+                            <div class="journey-dot"></div>
+                            <span class="journey-label">Ulster University</span>
+                            <span class="journey-loc">📍 Northland Road, Derry</span>
+                        </button>
+                        <button class="journey-node" data-journey="2">
+                            <div class="journey-dot journey-dot--current"></div>
+                            <span class="journey-label">European Committee</span>
+                            <span class="journey-loc">📍 Brussels, Belgium</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="journey-panels">
+                    <div class="journey-panel" id="journey-panel-0">
+                        <p>St. Paul's High School in Bessbrook was where it all began — sitting in the heart of South Armagh, surrounded by the very landscape that Irish was made to describe. The rolling drumlins, the quiet roads, the kind of community where history wasn't taught from a textbook but lived and breathed every day. It was here that the seeds were planted, even if I didn't fully know it yet.</p>
+                    </div>
+                    <div class="journey-panel" id="journey-panel-1">
+                        <p>Ulster University in Derry is where the obsession went fully off the rails — in the best possible way. What started as a curiosity turned into sleepless nights hunched over JSTOR journals, tracing words back through centuries of history. Etymology, folklore, dialect — each one a rabbit hole deeper than the last. The rash spread, as they say, and there was no going back.</p>
+                    </div>
+                    <div class="journey-panel" id="journey-panel-2">
+                        <p>Brussels and the European Committee was one of those experiences that genuinely shifts your perspective. Sitting at the table where minority languages and cultural identity are debated at a European level — Irish suddenly felt both ancient and urgent at the same time. It was a reminder that the language isn't just something we speak at home; it's something the world is watching.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="blog">
+            <h2>Daily Life Blog <img src="irish-setter.png" alt="" class="blog-title-icon"></h2>
+            <p class="section-subtitle">Stories, tips and me rambling..</p>
+
+            <div class="blog-posts">
+                <article class="blog-post">
+                    <h3>Dúirt Dara or Dara said - What does it all mean?</h3>
+                    <p class="blog-date">May 7, 2026</p>
+                    <p>Dara says a lot. Not always relevant, useful or even 100% factual, but I like to think it's usually interesting. From oral tradition to border graveyards — this one goes places...</p>
+                    <a href="post-1.html" class="read-more">Read more <span>→</span></a>
+                </article>
+
+                <article class="blog-post">
+                    <h3>The Beauty of Pronunciation</h3>
+                    <p class="blog-date">May 1, 2026</p>
+                    <p>Irish pronunciation can seem intimidating at first, but there's a rhythm and melody to it that makes it truly beautiful. Understanding the sounds is the key to unlocking fluency. Today, I want to share my favorite pronunciation tips...</p>
+                    <a href="post-2.html" class="read-more">Read more <span>→</span></a>
+                </article>
+
+                <article class="blog-post">
+                    <h3>Culture Through Language</h3>
+                    <p class="blog-date">April 28, 2026</p>
+                    <p>Language isn't just words and grammar—it's culture, history, and tradition. When we learn Irish, we're not just learning a language; we're connecting with centuries of Irish heritage. This week, I explored traditional Irish music with my students...</p>
+                    <a href="post-3.html" class="read-more">Read more <span>→</span></a>
+                </article>
+
+                <article class="blog-post">
+                    <h3>Small Steps, Big Progress</h3>
+                    <p class="blog-date">April 25, 2026</p>
+                    <p>Today, one of my students said their first complete sentence in Irish without hesitation. It was a simple sentence, but the joy on their face was priceless. This is why I love teaching. Every small step is a victory...</p>
+                    <a href="post-4.html" class="read-more">Read more <span>→</span></a>
+                </article>
+            </div>
+        </section>
+
+
+        <!-- Newsletter Section -->
+        <section id="newsletter" class="newsletter">
+            <h2>Join My Newsletter <img src="mail.png" alt="" class="newsletter-title-icon"></h2>
+            <p class="section-subtitle">Get monthly tips, cultural insights, and Irish language inspiration</p>
+            
+            <form id="newsletterForm" class="newsletter-form">
+                <div class="form-group">
+                    <input type="text" id="newsletter-name" name="name" placeholder="Your Name" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" id="newsletter-email" name="email" placeholder="Your Email" required>
+                </div>
+
+                <button type="submit" class="submit-btn newsletter-btn">Sign Up for Free</button>
+            </form>
+
+            <div id="newsletterMessage" class="newsletter-message"></div>
+        </section>
+
+    <script>
+    // Toggle logo image filter on scroll
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        const logoImg = document.getElementById('logo-img');
+        if (header.classList.contains('scrolled')) {
+            logoImg.classList.add('logo-dark');
+            logoImg.classList.remove('logo-white');
+        } else {
+            logoImg.classList.add('logo-white');
+            logoImg.classList.remove('logo-dark');
+        }
+    });
+    window.addEventListener('DOMContentLoaded', function() {
+        const header = document.querySelector('header');
+        const logoImg = document.getElementById('logo-img');
+        if (header.classList.contains('scrolled')) {
+            logoImg.classList.add('logo-dark');
+        } else {
+            logoImg.classList.add('logo-white');
+        }
+    });
+
+    // Reach Out modal
+    const modal = document.getElementById('reachOutModal');
+    document.getElementById('reachOutBtn').addEventListener('click', function (e) {
+        // Pop animation
+        const btn = this;
+        btn.classList.remove('clicked');
+        void btn.offsetWidth;
+        btn.classList.add('clicked');
+        btn.addEventListener('animationend', function () { btn.classList.remove('clicked'); }, { once: true });
+
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    });
+    function closeModal() {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+        document.getElementById('reachOutForm').style.display = '';
+        document.getElementById('roSuccess').style.display = 'none';
+        document.getElementById('roError').style.display = 'none';
+    }
+    document.getElementById('contactNavBtn').addEventListener('click', function (e) {
+        e.preventDefault();
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    });
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+    modal.addEventListener('click', function (e) {
+        if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeModal();
+    });
+    document.getElementById('reachOutForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const form = this;
+        const submitBtn = form.querySelector('[type="submit"]');
+        const successDiv = document.getElementById('roSuccess');
+        const errorDiv = document.getElementById('roError');
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        errorDiv.style.display = 'none';
+
+        try {
+            const response = await fetch('https://formspree.io/f/xdabzvbz', {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            });
+            if (response.ok) {
+                form.style.display = 'none';
+                successDiv.style.display = 'block';
+                form.reset();
+            } else {
+                const data = await response.json();
+                errorDiv.textContent = data.errors ? data.errors.map(err => err.message).join(', ') : 'Something went wrong. Please try again.';
+                errorDiv.style.display = 'block';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            }
+        } catch (_) {
+            errorDiv.textContent = 'Something went wrong. Please try again.';
+            errorDiv.style.display = 'block';
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Message';
+        }
+    });
+    </script>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <p>&copy; 2026 Dúirt Dara. All rights reserved.</p>
+                <p>Beo inár dteanga - Alive in our language</p>
+            </div>
+            <div class="social-icons-footer">
+                <a href="https://www.facebook.com/dara.nichoileaincollins" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://uk.linkedin.com/in/dara-collins-7a8557208" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/daracollins/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
